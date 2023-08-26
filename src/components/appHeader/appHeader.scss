@@ -1,0 +1,44 @@
+.header {
+    background: rgba(0, 0, 0, 0);
+
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 5;
+    &__logo {
+        max-height: 80px;
+        width: 86px;
+        img {
+            width: 100%;    
+        }
+    }
+    &__nav {
+        ul {
+            width: 900px;
+
+            display: flex;
+            justify-content: space-between;
+        
+            list-style: none;
+        }
+    }
+    &__item {
+        a {
+            color: #fff;
+            position: relative;
+            font-size: 16px;
+            font-weight: 700;
+         }
+    }
+    &__social {
+        list-style: none;
+
+        display: flex;
+        justify-content: space-between;
+    }
+    &__social-item {
+        margin-left: 15px;
+    }
+}

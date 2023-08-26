@@ -1,0 +1,64 @@
+$_item-width: 1140px;
+
+.slider {
+    position: relative;
+
+    margin: 0 auto;
+    width: 100%;
+    height: 600px;
+    
+    border-radius: 10px;
+
+    overflow: hidden;
+    &__inner {
+        width: calc($_item-width*3);
+        height: 100%;
+
+        display: flex;
+        transition: 0.6s all;
+    }
+    &__item {
+        width: $_item-width;
+        height: 100%;
+        background: #fff;
+        overflow: hidden;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+    &__arrow {
+        position: absolute;
+        top: 50%;
+    
+        cursor: pointer;
+
+        width: 40px;
+        height: 40px;
+
+        background: rgba(0,0,0,0);
+        border: none;
+        img {
+            width: 100%;
+            height: 100%;
+            transform: rotate(90deg);
+            transition: 0.4s all;
+        }
+        &:hover {
+            img {
+                scale: 120%;
+            }
+        }
+        &_prev {
+            left: 5px;
+            img {
+            transform: rotate(270deg);
+            }
+        }
+        &_next {
+            right: 5px;
+        }
+    }
+}
+

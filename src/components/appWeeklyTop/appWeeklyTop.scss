@@ -1,0 +1,14 @@
+.weekly-top {
+    background: #fff;
+    min-height: 1000px;
+    padding: 45px 0 90px 0;
+    &__filter {
+        margin: 20px 0;
+        text-align: center;
+        text-transform: uppercase;
+    }
+    &__items {
+        display: flex;
+        justify-content: space-between;
+    }
+}

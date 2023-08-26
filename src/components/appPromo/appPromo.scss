@@ -1,0 +1,29 @@
+.promo {
+    // background: url('../../resources/images/main-bg.png') center center/cover no-repeat;
+    min-height: 100vh;
+
+    padding: 0 0 80px 0;
+
+    color: #fff;
+    &__title {
+        margin-top: 60px;
+        font-weight: 700;
+        font-size: 68px;
+        text-align: left;
+
+        width: 760px;
+        span {
+            font-size: 46px;
+            font-weight: 700;
+        }
+    }
+    &__subtitle {
+        margin-top: 38px;
+        font-weight: 700;
+        font-size: 26px;
+    }
+    &__btns {
+        margin-top: 90px;
+        display: flex;
+    }
+}

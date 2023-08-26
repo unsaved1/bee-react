@@ -1,0 +1,52 @@
+.how-order {
+    min-height: 1000px;
+    background: #fff;
+    padding-top: 65px;
+    &__steps {
+        margin-top: 120px;
+    }
+    &__item{
+        position: relative;
+        padding: 0 40px 30px 40px;
+        &_left {
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                transform: translateX(50%);
+
+                width: 22px;
+                height: 22px;
+                background: #ffa820;
+    
+                border-radius: 50%;
+            }
+            &:after {
+                content: '';
+                position: absolute;
+                top: 22px;
+                right: 0;
+                transform: translateX(50%);
+
+                width: 2px;
+                height: 100%;
+                background: #e0e0e0;
+            }
+            &:last-child {
+                &:after {
+                    height: 0;
+                }
+            }
+        }
+    }
+    &__item-name {
+        font-size: 22px;
+        font-weight: 600;
+    }
+    &__item-descr {
+        margin-top: 16px;
+        font-size: 15px;
+        font-weight: 300;
+    }
+}
