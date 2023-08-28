@@ -4,6 +4,7 @@ import AppHeader from '../appHeader/AppHeader';
 
 import AppBtnTheme from '../appBtnTheme/AppBtnTheme';
 import { Button, ThemeProvider } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const AppPromo = () => {
     return (
@@ -21,8 +22,8 @@ const AppPromo = () => {
 
                 <div className="promo__btns">
                     <ThemeProvider theme={AppBtnTheme}>
-                        <Button sx={{width: '200px', height: '60px', borderRadius: '10px', marginRight: '20px'}} color='primary' href='#' variant='contained'>Каталог</Button>
-                        <Button sx={{width: '300px', height: '60px', borderRadius: '10px'}} color='primary' href='#' variant='contained'>Чайная продукция</Button>
+                        <Link to='/beeProducts'><Button sx={{width: '200px', height: '60px', borderRadius: '10px', marginRight: '20px'}} color='primary' href='#' variant='contained'>Каталог</Button></Link>
+                        <Link to='/teaProducts'><Button sx={{width: '300px', height: '60px', borderRadius: '10px'}} color='primary' href='#' variant='contained'>Чайная продукция</Button></Link>
                     </ThemeProvider>
                 </div>
             </div>

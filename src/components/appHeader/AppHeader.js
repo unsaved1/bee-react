@@ -10,9 +10,11 @@ import { Link } from 'react-router-dom';
 const AppHeader = () => {
     return (
         <div className="header">
-            <div className="header__logo">
-                <img src={logo} alt="logo"/>
-            </div>
+            <Link to='/'>
+                <div className="header__logo">
+                    <img src={logo} alt="logo"/>
+                </div>
+            </Link>
 
             <nav className='header__nav'>
                 <ul>

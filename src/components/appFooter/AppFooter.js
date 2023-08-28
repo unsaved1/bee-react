@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './appFooter.scss';
 
 const AppFooter = () => {
@@ -15,13 +16,13 @@ const AppFooter = () => {
                         
                     <ul className="footer__menu">
                         <h2 className="footer__menu-title">МЕНЮ</h2>
-                        <li><a href="#">Главная</a></li>
-                        <li><a href="#">Каталог</a></li>
-                        <li><a href="#">Оплата и доставка</a></li>
-                        <li><a href="#">Контакты</a></li>
-                        <li><a href="#">Грибная продукция</a></li>
-                        <li><a href="#">Отзывы</a></li>
-                        <li><a href="#">Сертификаты</a></li>
+                        <li><Link to="/">Главная</Link></li>
+                        <li><Link to="/beeProducts">Каталог</Link></li>
+                        <li><Link to="/pay">Оплата и доставка</Link></li>
+                        <li><Link to="/contacts">Контакты</Link></li>
+                        <li><Link to="/teaProducts">Чайная продукция</Link></li>
+                        <li><Link to="/reviews">Отзывы</Link></li>
+                        <li><Link to="/">Сертификаты</Link></li>
                     </ul>
                     
                     <ul className="footer__contacts">
@@ -29,21 +30,21 @@ const AppFooter = () => {
                         <li>
                             <p>
                                 WhatsApp: <br />
-                                <a href="#">+7 (906) 983-14-82</a>
+                                +7 (906) 983-14-82
                             </p>
                         </li>
                        
                         <li>
                             <p>
                                 Email: <br />  
-                                <a href="#">zakaz@gribsale.ru</a>
+                                zakaz@gribsale.rus
                             </p>
                         </li>
                        
                         <li>
                             <p>
                                 Telegram-канал: <br />
-                                <a href="#">https://t.me/mishinapaseka</a>
+                                <Link to="https://t.me/mishinapaseka">https://t.me/mishinapaseka</Link>
                             </p>
                         </li>
 
