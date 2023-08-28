@@ -7,7 +7,7 @@ import AppFilter from '../appFilter/AppFilter';
 import catalog from '../../resources/db/db.json';
 import someImg from '../../resources/images/bee-item.png';
 
-const AppCatalog = ({catalogName = null, itemImg = someImg, categoryValues = []}) => {
+const AppCatalog = ({catalogName = null, itemImg = someImg, categoryValues = [], boxShadow = false}) => {
     const [items, setItems] = useState([]);
     const [term, setTerm] = useState('');
     
@@ -49,9 +49,16 @@ const AppCatalog = ({catalogName = null, itemImg = someImg, categoryValues = []}
 
     const setAllItems = (items) => {
         const itemsFiltered = searchItems(items, term);
+        if (itemsFiltered.length === 0) {
+            return (
+                <div style={{height: 400, display: 'flex', alignItems: 'center', position: 'absolute', left: '50%', transform: 'translateX(-50%)'}} className="catalog__empty-items">
+                    <h3 className="catalog__title-empty">По данному запросу ничего не найдено</h3>
+                </div>
+            )
+        }
         const itemsArr = itemsFiltered.map(({itemName, itemPrice, itemDescr}, i) => {
             return  <Grid key={i} item>
-                        <AppCardItem boxShadow={false} src={itemImg} title={itemName} price={itemPrice} descr={itemDescr}/>
+                        <AppCardItem boxShadow={boxShadow} src={itemImg} title={itemName} price={itemPrice} descr={itemDescr}/>
                     </Grid>
         })
         return [...itemsArr]
@@ -67,6 +74,7 @@ const AppCatalog = ({catalogName = null, itemImg = someImg, categoryValues = []}
             <div className="container">
                 <AppFilter func={onUpdateSearch}  categoryValues={categoryValues} catalogData={items}/>
                 <Grid 
+                    sx={{position: 'relative'}}
                     display='grid'
                     gridTemplateColumns='repeat(auto-fit, 360px)'
                     gridTemplateRows='repeat(auto-fit, 780px)'
