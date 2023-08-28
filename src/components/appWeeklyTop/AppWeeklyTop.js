@@ -8,8 +8,7 @@ const AppWeeklyTop = () => {
         <section className="weekly-top">
             <div className="container">
                 <h2 className='title weekly-top__title'>ТОВАРЫ НЕДЕЛИ</h2>
-                <AppFilter/>
-                <AppCatalog catalogName='BeeGoods'/>
+                <AppCatalog catalogName='BeeGoods' categoryValues={['мед', 'медовая продукция']}/>
             </div>
         </section>
     )

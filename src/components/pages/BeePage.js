@@ -11,7 +11,7 @@ const BeePage = () => {
                 bg='_AYhRpS8Mz8'
                 title='МЕДОВАЯ ПРОДУКЦИЯ'
                 text={['Различные виды меда, настойки, соты, пыльца и не только.', 'В нашем каталоге множество различной медовой продукции.']}/>
-            <AppCatalog catalogName='BeeGoods'/>
+            <AppCatalog catalogName='BeeGoods' categoryValues={['мед', 'медовая продукция']}/>
             <AppFooter/>
         </>
     )

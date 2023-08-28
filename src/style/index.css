@@ -68,3 +68,7 @@ ul {
   text-align: center;
   font-weight: 600;
 }
+
+body .css-v4u5dn-MuiInputBase-root-MuiInput-root:after {
+  border-bottom: none;
+}

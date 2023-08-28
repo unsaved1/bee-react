@@ -2,13 +2,15 @@ import { useEffect, useState } from "react";
 import { Grid } from "@mui/material";
 
 import AppCardItem from "../appCardItem/AppCardItem";
+import AppFilter from '../appFilter/AppFilter';
 
 import catalog from '../../resources/db/db.json';
 import someImg from '../../resources/images/bee-item.png';
 
-const AppCatalog = ({catalogName = null, itemImg = someImg}) => {
+const AppCatalog = ({catalogName = null, itemImg = someImg, categoryValues = []}) => {
     const [items, setItems] = useState([]);
-
+    const [term, setTerm] = useState('');
+    
     const catalogItemsData = new Promise((resolve, reject) => {
         catalog.catalogCategory.map(category => {
             if (category.categoryName === catalogName) {
@@ -17,22 +19,41 @@ const AppCatalog = ({catalogName = null, itemImg = someImg}) => {
         }) 
     })
 
+    const onUpdateSearch = (e) => {
+        const targetValue = e.currentTarget.previousSibling.value;
+        setTerm(targetValue);
+ 
+    };
+
+    const searchItems = (items, term) => {
+        if (term === '') {
+            return items;
+        } 
+
+        return items.filter(item => {
+            return item.itemName.indexOf(term) > -1;   
+        })
+    };
+
     const onItemsLoad = (itemList) => {
-        setItems(items => [...itemList]);
+        setItems((items) => [...itemList]);
+        
     }
 
     useEffect(() => {
-        catalogItemsData.then(onItemsLoad)   
+        catalogItemsData
+            .then(onItemsLoad)
+            .then(searchItems(items, term))
     }, [])
 
+
     const setAllItems = (items) => {
-        const itemsArr = items.map(({itemName, itemPrice, itemDescr}, i) => {
+        const itemsFiltered = searchItems(items, term);
+        const itemsArr = itemsFiltered.map(({itemName, itemPrice, itemDescr}, i) => {
             return  <Grid key={i} item>
                         <AppCardItem boxShadow={false} src={itemImg} title={itemName} price={itemPrice} descr={itemDescr}/>
                     </Grid>
         })
-
-        console.log(itemsArr)
         return [...itemsArr]
     }
 
@@ -40,10 +61,11 @@ const AppCatalog = ({catalogName = null, itemImg = someImg}) => {
 
     return (
         <section style={{
-            padding: '30px 0 45px 0'
+            padding: '30px 0 45px 0',
+            minHeight: 800
         }} className="catalog">
             <div className="container">
-                <h2>FILTER</h2>
+                <AppFilter func={onUpdateSearch}  categoryValues={categoryValues} catalogData={items}/>
                 <Grid 
                     display='grid'
                     gridTemplateColumns='repeat(auto-fit, 360px)'

@@ -11,7 +11,7 @@ const TeaPage = () => {
                 bg='HJF2-7XfRuQ'
                 title='ЧАЙНАЯ ПРОДУКЦИЯ' 
                 text={['Листовой или гранулированный чай.', 'А также, специальный чай для разных потребностей.']}/>
-            <AppCatalog catalogName='TeaGoods' itemImg={itemTeaImg}/>
+            <AppCatalog catalogName='TeaGoods' itemImg={itemTeaImg} categoryValues={['чай', 'чайная продукция']}/>
             <AppFooter/>
         </>
     )
