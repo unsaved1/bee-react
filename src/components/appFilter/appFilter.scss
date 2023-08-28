@@ -1,0 +1,12 @@
+.filter {
+    &__category {
+        display: flex;
+        align-items: center;
+        svg {
+            width: 10px;
+            height: 10px;
+            transform: rotate(180deg);
+            margin-left: 10px;
+        }
+    }
+}

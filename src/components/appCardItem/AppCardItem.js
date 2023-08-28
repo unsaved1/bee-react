@@ -4,7 +4,7 @@ import AppBtnTheme from '../appBtnTheme/AppBtnTheme';
 import itemImg from '../../resources/images/bee-item.png';
 
 
-const AppCardItem = ({boxShadow = true}) => {
+const AppCardItem = ({boxShadow = true, src = itemImg, title = null, price = null, descr = null}) => {
 
     const cardItemStyle = {
         position: 'relative',
@@ -88,13 +88,13 @@ const AppCardItem = ({boxShadow = true}) => {
                     className="weekly-top__img">
                         <img
                             style={imgStyle} 
-                            src={itemImg}
+                            src={src}
                             alt="beeItem"/>
                 </div>
-                <h3 style={{fontWeight: '700', textAlign: 'center'}} className="weekly-top__item-name">Мёд с 5% трутневого молочка (гомогената)</h3>
-                <h3 style={{marginTop: '12px'}} className="weekly-top__item-price">800 р.<span style={{opacity: '.5', fontSize: '.8em'}}>/ 1 шт</span></h3>
-                <p className="weekly-top__descr">
-                Трутневое молочко обладает мощным оздоровительным и омолаживающим действием, что объясняется его богатейшим биохимическим составом (370 мл)
+                <h3 style={{fontWeight: '700', textAlign: 'center'}} className="weekly-top__item-name">{title}</h3>
+                <h3 style={{marginTop: '12px'}} className="weekly-top__item-price">{price} р.<span style={{opacity: '.5', fontSize: '.8em'}}>/ 1 шт</span></h3>
+                <p style={{height: 140}} className="weekly-top__descr">
+                    {descr}
                 </p>
 
                 <ThemeProvider theme={AppBtnTheme}>

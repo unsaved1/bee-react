@@ -1,5 +1,6 @@
 import './appWeeklyTop.scss';
-import AppCardItem from '../appCardItem/AppCardItem';
+import AppCatalog from '../appCatalog/AppCatalog';
+import AppFilter from '../appFilter/AppFilter';
 
 
 const AppWeeklyTop = () => {
@@ -7,12 +8,8 @@ const AppWeeklyTop = () => {
         <section className="weekly-top">
             <div className="container">
                 <h2 className='title weekly-top__title'>ТОВАРЫ НЕДЕЛИ</h2>
-                <div className='weekly-top__filter'>filter</div>
-                <div className="weekly-top__items">
-                    <AppCardItem/>
-                    <AppCardItem/>
-                    <AppCardItem/>
-                </div>
+                <AppFilter/>
+                <AppCatalog catalogName='BeeGoods'/>
             </div>
         </section>
     )
