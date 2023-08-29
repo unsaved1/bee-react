@@ -37,7 +37,7 @@ const AppSlider = () => {
             return width.large;
         }
         if (window.innerWidth <= 576) {
-            return width.litle;
+            return window.innerWidth - 40;
         } 
         if (window.innerWidth <= 768) {
             return width.small;
