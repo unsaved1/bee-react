@@ -22,8 +22,8 @@ const AppPromo = () => {
 
                 <div className="promo__btns">
                     <ThemeProvider theme={AppBtnTheme}>
-                        <Link to='/beeProducts'><Button sx={{width: '200px', height: '60px', borderRadius: '10px', marginRight: '20px'}} color='primary' href='#' variant='contained'>Каталог</Button></Link>
-                        <Link to='/teaProducts'><Button sx={{width: '300px', height: '60px', borderRadius: '10px'}} color='primary' href='#' variant='contained'>Чайная продукция</Button></Link>
+                        <Link to='/beeProducts'><Button sx={{width: '200px', height: '60px', borderRadius: '10px', marginRight: '20px'}} color='primary' variant='contained'>Каталог</Button></Link>
+                        <Link to='/teaProducts'><Button sx={{width: '300px', height: '60px', borderRadius: '10px'}} color='primary' variant='contained'>Чайная продукция</Button></Link>
                     </ThemeProvider>
                 </div>
             </div>

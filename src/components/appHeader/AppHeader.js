@@ -29,18 +29,18 @@ const AppHeader = () => {
             </nav>
 
             <ul className="header__social">
-                <li className="header__social-item"><a href="#">
+                <li className="header__social-item"><Link to="/">
                     <img src={instagram} alt="insta" />
-                </a></li>
-                <li className="header__social-item"><a href="#">
+                </Link></li>
+                <li className="header__social-item"><Link to="/">
                     <img src={facebook} alt="facebook" />
-                </a></li>
-                <li className="header__social-item"><a href="#">
+                </Link></li>
+                <li className="header__social-item"><Link to="/">
                     <img src={pinterest} alt="pinterest" />
-                </a></li>
-                <li className="header__social-item"><a href="#">
+                </Link></li>
+                <li className="header__social-item"><Link to="/">
                     <img src={facebook} alt="facebook" />
-                </a></li>
+                </Link></li>
             </ul>
         </div>
     )

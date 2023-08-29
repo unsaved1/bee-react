@@ -7,17 +7,57 @@ import AppFilter from '../appFilter/AppFilter';
 import catalog from '../../resources/db/db.json';
 import someImg from '../../resources/images/bee-item.png';
 
-const AppCatalog = ({catalogName = null, itemImg = someImg, categoryValues = [], boxShadow = false}) => {
+const AppCatalog = (
+                    {   catalogName = null, 
+                        itemImg = someImg, 
+                        categoryValues = [], 
+                        boxShadow = false}) => {
+
+            
     const [items, setItems] = useState([]);
     const [term, setTerm] = useState('');
+    const [filterProp, setFilterProp] = useState('без категории');
+    const [sortingProp, setSortingProp] = useState('');
+
+    useEffect(() => {
+        catalogItemsData
+            .then(onItemsLoad)
+    }, [])
+
+
+    const onItemsLoad = (itemList) => {
+        setItems((items) => [...itemList]);
+    }
     
     const catalogItemsData = new Promise((resolve, reject) => {
         catalog.catalogCategory.map(category => {
             if (category.categoryName === catalogName) {
                 resolve(category.categoryItems)
             }
+            return category.categoryItems;
         }) 
     })
+
+
+    
+    
+    const onUpdateFilter = (e) => {
+        const target = e.currentTarget; 
+        setFilterProp(target.value);
+    };
+
+    const filterItems = (items, filterProp) => {
+        if (filterProp === 'без категории') {
+            return items;
+        } 
+
+        return items.filter(item => {
+            return item.itemProdName === filterProp;   
+        })
+    }
+
+
+
 
     const onUpdateSearch = (e) => {
         const targetValue = e.currentTarget.previousSibling.value;
@@ -35,20 +75,57 @@ const AppCatalog = ({catalogName = null, itemImg = someImg, categoryValues = [],
         })
     };
 
-    const onItemsLoad = (itemList) => {
-        setItems((items) => [...itemList]);
-        
+
+
+    const onUpdateSorting = (e) => {
+        const target = e.currentTarget;
+        setSortingProp(target.value);
     }
 
-    useEffect(() => {
-        catalogItemsData
-            .then(onItemsLoad)
-            .then(searchItems(items, term))
-    }, [])
+    const sortByFieldPriceToUp = (fieldName) => {
+        return (a, b) => +a[fieldName] > +b[fieldName] ? 1 : -1; 
+    }
+    const sortByFieldPriceToLow = (fieldName) => {
+        return (a, b) => +a[fieldName] < +b[fieldName] ? 1 : -1; 
+    }
+
+    const sortByFieldName = (fieldName) => {
+        return (a, b) => a[fieldName] > b[fieldName] ? 1 : -1;
+    }
+
+    const sortByFieldNameReverse = (fieldName) => {
+        return (a, b) => a[fieldName] < b[fieldName] ? 1 : -1;
+    }
+
+    
+
+    const sortItems = (items, sortingProp) => {
+        switch (sortingProp) {
+            case '':
+                return items;
+            case 'Порядок: по умолчанию':
+                return items;
+            case 'Цена: по возрастанию': 
+                return items.slice().sort(sortByFieldPriceToUp('itemPrice'));
+            case 'Цена: по убыванию': 
+                return items.slice().sort(sortByFieldPriceToLow('itemPrice'));
+            case 'Название: А—Я': 
+                return items.slice().sort(sortByFieldName('itemName'));
+            case 'Название: Я—А': 
+                return items.slice().sort(sortByFieldNameReverse('itemName'));
+            case 'Порядок: сначала новые': 
+                return items.slice().sort(sortByFieldName('itemName'));
+            case 'Порядок: сначала старые': 
+                return items.slice().sort(sortByFieldNameReverse('itemName'));
+            default:
+                console.log('Нет совпадений')
+        }
+    };
 
 
     const setAllItems = (items) => {
-        const itemsFiltered = searchItems(items, term);
+        const itemsFiltered = sortItems(filterItems(searchItems(items, term), filterProp), sortingProp);
+        
         if (itemsFiltered.length === 0) {
             return (
                 <div style={{height: 400, display: 'flex', alignItems: 'center', position: 'absolute', left: '50%', transform: 'translateX(-50%)'}} className="catalog__empty-items">
@@ -72,7 +149,7 @@ const AppCatalog = ({catalogName = null, itemImg = someImg, categoryValues = [],
             minHeight: 800
         }} className="catalog">
             <div className="container">
-                <AppFilter func={onUpdateSearch}  categoryValues={categoryValues} catalogData={items}/>
+                <AppFilter searchFn={onUpdateSearch} filterFn={onUpdateFilter} sortingFn={onUpdateSorting} categoryValues={categoryValues} catalogData={items}/>
                 <Grid 
                     sx={{position: 'relative'}}
                     display='grid'
