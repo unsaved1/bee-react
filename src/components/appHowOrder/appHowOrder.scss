@@ -3,12 +3,15 @@
     background: #fff;
     padding-top: 65px;
     &__steps {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
         margin-top: 120px;
     }
     &__item{
         position: relative;
         padding: 0 40px 30px 40px;
         &_left {
+            text-align: right;
             &:before {
                 content: '';
                 position: absolute;
@@ -48,5 +51,56 @@
         margin-top: 16px;
         font-size: 15px;
         font-weight: 300;
+    }
+}
+
+@media (max-width: 768px) {
+    .how-order {
+        &__item-name {
+            font-size: 20px;
+        }
+        &__item-descr {
+            font-size: 14px;
+        }
+    }
+}
+
+@media (max-width: 576px ) {
+    .how-order {
+        &__steps {
+            grid-template-columns: 1fr;
+        }
+        &__item {
+            &:before {
+                content: '';
+                position: absolute;
+                top: 8px;
+                left: 0;
+                transform: translateX(-50%);
+
+                width: 14px;
+                height: 14px;
+                background: #ffa820;
+    
+                border-radius: 50%;
+            }
+            &:after {
+                content: '';
+                position: absolute;
+                top: 22px;
+                left: 0;
+                transform: translateX(-50%);
+
+                width: 2px;
+                height: 100%;
+                background: #e0e0e0;
+            }
+            &_left {
+                text-align: left;
+            }
+            &_empty {
+                display: none;
+            }
+        }
     }
 }

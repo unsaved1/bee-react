@@ -78,3 +78,34 @@
         transform: translate(0) scale(0.75);        
     }
 }
+
+@media (max-width: 576px) {
+    .filter {
+        .container {
+            padding: 0;
+        }
+        height: 160px;
+        &__wrapper {
+            flex-direction: column;
+            align-items: end;
+        }
+        &__search {
+            width: 100%;
+            margin: 0;
+
+            margin-bottom: 10px;
+        }
+        &__sorting-search-wrapper {
+            margin-top: 20px;
+            flex-direction: column;
+            align-items: start;
+        }
+        &__category {
+            width: 210px;
+        }
+        &__category-select {
+            width: 100%;
+            max-width: unset;
+        }
+    }
+}

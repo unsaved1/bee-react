@@ -9,6 +9,7 @@ const ReviewsPage = () => {
         <>
             <AppAnotherPromo
                 bg={reviewsBg}
+                secondBg={reviewsBg}
                 title='отзывы'
                 height="60vh"/>
             <AppReviews/>

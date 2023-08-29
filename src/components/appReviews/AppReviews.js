@@ -3,7 +3,7 @@ import AppSlider from "../appSlider/AppSlider";
 const AppReviews = () => {
     const reviewsStyle = {
         background: '#fff',
-        minHeight: 1000,
+        minHeight: window.innerWidth <= 768 ? 600 : 800,
         display: 'flex',
         alignItems: 'center',
     }

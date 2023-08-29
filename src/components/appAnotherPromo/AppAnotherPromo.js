@@ -2,6 +2,7 @@ import AppHeader from "../appHeader/AppHeader";
 import AppIframeBg from "../appIframeBg/AppIframeBg";
 
 const AppAnotherPromo = ({  bg = null, 
+                            secondBg = null,
                             title = null, 
                             text = [],
                             height = '80vh'}) => {
@@ -13,13 +14,25 @@ const AppAnotherPromo = ({  bg = null,
         overflow: 'hidden'
     }
 
+    const setTitleFz = () => {
+        if (window.innerWidth <= 576) {
+            return 34
+        } 
+        if (window.innerWidth <= 768) {
+            return 48
+        } else {
+            return 104
+        }
+    }
 
+    const titleFz = setTitleFz();
+    
     const titleStyle = {
         textTransform: 'uppercase',
-        fontSize: 104,
+        fontSize: titleFz,
         fontWeight: '600',
         textAlign: 'center',
-        marginTop: 100,
+        marginTop: window.innerWidth <= 768 ? 140 : 100,
         color: '#fff'
     }
 
@@ -32,7 +45,7 @@ const AppAnotherPromo = ({  bg = null,
     const textStyle = {
         textAlign: 'center',
 
-        fontSize: 20,
+        fontSize: window.innerWidth <= 576 ? 16 : 20,
         fontWeight: '300',
         lineHeight: '1.55',
         color: '#fff'
@@ -59,7 +72,7 @@ const AppAnotherPromo = ({  bg = null,
     return (
         <section style={promoStyle} className="promo">
             <AppHeader/>
-            <AppIframeBg url={bg}/>
+            <AppIframeBg url={bg} secondBg={secondBg}/>
             <div style={{position: 'relative'}} className="promo__wrapper">
                 <h1 style={titleStyle}>
                         {title}</h1>

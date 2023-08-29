@@ -1,4 +1,4 @@
-const AppIframeBg = ({url}) => {
+const AppIframeBg = ({url, secondBg = null, scale = '150%'}) => {
     let src;
     const videoSrc = `https://www.youtube.com/embed/${url}?controls=0&amp;autoplay=1&amp;loop=1&amp;enablejsapi=1&amp;playerapiid=featuredytplayer&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;showinfo=0&amp;color=white&amp;iv_load_policy=3&amp;theme=light&amp;wmode=transparent&amp;origin=https://mishinapaseka.ru&amp;playlist=${url}&amp;mute=1`
     
@@ -8,7 +8,6 @@ const AppIframeBg = ({url}) => {
         left: '0', 
         height: '100%', 
         width: '100%', 
-        // zIndex: '-1', 
         overflow: 'hidden',
 
         animationName: 'fadeInBg', 
@@ -19,13 +18,13 @@ const AppIframeBg = ({url}) => {
     const iframeStyle = {
         width: '100%', 
         height: '100%', 
-        scale: '150%', 
+        scale: scale, 
         background: '#000'
     };
     
-    if (/static/.test(url)) {
-        src = null;
-        playerStyle.background = `url(${url}) center center/cover no-repeat`;
+    if (/static/.test(url) || window.innerWidth <= 992) {
+        // src = null;
+        playerStyle.background = `url(${secondBg}) center center/cover no-repeat`;
         iframeStyle.opacity = 0;
     } else {
         src = videoSrc;

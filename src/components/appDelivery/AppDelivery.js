@@ -1,15 +1,8 @@
 import './appDelivery.scss';
-import { Box } from '@mui/material';
+import { Box, Grid } from '@mui/material';
 
 const AppDelivery = () => {
-    const deliveryItemStyle = {
-        width: '360px',
-        height: '380px',
-        padding: '30px 30px 40px 30px',
 
-        borderRadius: '5px',
-        boxShadow: 'rgba(0, 0, 0, 0.1) 0px 0px 10px 0px'
-    }
 
     return (
         <section className="delivery">
@@ -20,9 +13,8 @@ const AppDelivery = () => {
                 <div className="container">
                     <h3 className="delivery__subtitle">Мы осуществляем доставку нашей продукции по всей территории Российской Федерации.</h3>   
 
-                    <div className="delivery__items">
-                        <Box 
-                            sx={deliveryItemStyle}>
+                    <Grid className="delivery__items">
+                        <Box className='delivery__item'>
                                 <h4 className="delivery__item-name">ДОСТАВКА ПОЧТОЙ РОССИИ</h4>
                                 <p className="delivery__item-descr">Доставка осуществляется почтой России в любой регион страны Стоимость доставки рассчитывается индивидуально.</p>
                                 <ul className="delivery__points">
@@ -31,8 +23,7 @@ const AppDelivery = () => {
                                 
                             </Box>
                        
-                        <Box 
-                            sx={deliveryItemStyle}>
+                        <Box className="delivery__item">
                                 <h4 className="delivery__item-name">СДЭК С ПРЕДОПЛАТОЙ ЗА ТОВАР</h4>
                                 <p className="delivery__item-descr">Доставка СДЭК по России до пункта выдачи или до адреса. Стоимость доставки рассчитывается индивидуально.</p>
                                 <ul className="delivery__points">
@@ -40,15 +31,14 @@ const AppDelivery = () => {
                                     <li className="delivery__item-point">Оплата за доставку при получении</li>
                                 </ul>
                             </Box>
-                        <Box 
-                            sx={deliveryItemStyle}>
+                        <Box className="delivery__item">
                                 <h4 className="delivery__item-name">СДЭК С ПРЕДОПЛАТОЙ ЗА ДОСТАВКУ</h4>
                                 <p className="delivery__item-descr">Доставка СДЭК по России до пункта выдачи или до адреса. Стоимость доставки рассчитывается индивидуально.</p>
                                 <ul className="delivery__points">
                                     <li className="delivery__item-point">Предоплата за доставку (390р)</li>
                                 </ul>
                             </Box>
-                    </div>
+                    </Grid>
                 </div>
             </div>
         </section>

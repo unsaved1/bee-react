@@ -38,3 +38,35 @@
         text-align: right;
     }
 }
+
+@media (max-width: 768px) {
+    .about {
+        &__descr {
+            font-size: 18px;
+        }
+        &__block {
+            padding: 30px 20px;
+            p {
+                font-size: 20px;
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .about {
+        &__descr {
+            font-size: 18px;
+        }
+        &__block {
+            padding: 30px 20px;
+            p {
+                font-size: 20px;
+            }
+        }
+        &__devider {
+            flex-direction: column;
+            height: unset;
+        }
+    }
+}

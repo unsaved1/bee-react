@@ -81,7 +81,6 @@ const AppCatalog = (
     };
 
 
-
     const onUpdateSorting = (e) => {
         const target = e.currentTarget;
         setSortingProp(target.value);
@@ -103,7 +102,6 @@ const AppCatalog = (
     }
 
     
-
     const sortItems = (items, sortingProp) => {
         switch (sortingProp) {
             case '':
@@ -128,6 +126,8 @@ const AppCatalog = (
     };
 
 
+
+
     const setAllItems = (items) => {
         const itemsFiltered = sortItems(filterItems(searchItems(items, term), filterProp), sortingProp);
         
@@ -149,6 +149,24 @@ const AppCatalog = (
     const spinner = loading ? <CircularProgress color='primary'/> : null;
     const content = setAllItems(items);
 
+
+    const gridTemplateColValues = {
+        default: 'repeat(auto-fit, 340px)',
+        small: 'repeat(auto-fit, 280px)'
+    }
+
+    const setGridTemplateCol = () => {
+        if (window.innerWidth <= 576) {
+            return gridTemplateColValues.small
+        } else {
+            return gridTemplateColValues.default
+        }
+    }
+
+    const gridTemplateCol = setGridTemplateCol(); 
+    
+
+
     return (
         <section style={{
             padding: '30px 0 45px 0',
@@ -157,11 +175,11 @@ const AppCatalog = (
             <div className="container">
                 <AppFilter searchFn={onUpdateSearch} filterFn={onUpdateFilter} sortingFn={onUpdateSorting} categoryValues={categoryValues} catalogData={items}/>
                 <Grid 
-                    sx={{position: 'relative'}}
+                    sx={{position: 'relative', justifyContent: 'center'}}
                     display='grid'
-                    gridTemplateColumns='repeat(auto-fit, 360px)'
-                    gridTemplateRows='repeat(auto-fit, 780px)'
-                    gap='20px'>
+                    gridTemplateColumns={gridTemplateCol}
+                    gridTemplateRows='repeat(auto-fit, 800px)'
+                    gap='30px'>
                      {content}
                      {spinner}
                 </Grid>

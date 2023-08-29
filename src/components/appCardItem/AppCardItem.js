@@ -8,10 +8,7 @@ const AppCardItem = ({boxShadow = true, src = itemImg, title = null, price = nul
 
     const cardItemStyle = {
         position: 'relative',
-
-        width: '360px',
-        height: '780px',
-        padding: '0 40px 40px 40px',
+        padding: window.innerWidth <= 576 ? '0 20px 20px 20px' : '0 40px 40px 40px',
 
         backgroundColor: '#fff',
         boxShadow: `${boxShadow ? '0px 0px 10px 0px rgba(0, 0, 0, 0.30)' : 'none'}`,
@@ -28,7 +25,7 @@ const AppCardItem = ({boxShadow = true, src = itemImg, title = null, price = nul
     }
 
     const imgWrapperStyle = {
-        width: '360px',
+        width: window.innerWidth <= 576 ? 320 : 340,
         height: '400px'
     }
 
@@ -42,7 +39,7 @@ const AppCardItem = ({boxShadow = true, src = itemImg, title = null, price = nul
     }
 
     const descrBtnStyle = {
-        width: '230px',
+        width: '    100%',
         textTransform: 'capitalize',
         color: '#fff',
         background: '#ffa820',
@@ -73,7 +70,8 @@ const AppCardItem = ({boxShadow = true, src = itemImg, title = null, price = nul
     }
 
     const btnsStyle = {
-        width: '230px',
+        marginTop: 10,
+        width: '240px',
 
         display: 'flex',
         justifyContent: 'space-between'
@@ -84,16 +82,15 @@ const AppCardItem = ({boxShadow = true, src = itemImg, title = null, price = nul
         <Box
             sx={cardItemStyle}>
                 <div 
-                    style={imgWrapperStyle} 
-                    className="weekly-top__img">
+                    style={imgWrapperStyle}>
                         <img
                             style={imgStyle} 
                             src={src}
                             alt="beeItem"/>
                 </div>
-                <h3 style={{fontWeight: '700', textAlign: 'center', height: 48}} className="weekly-top__item-name">{title}</h3>
-                <h3 style={{marginTop: '12px'}} className="weekly-top__item-price">{price} р.<span style={{opacity: '.5', fontSize: '.8em'}}>/ 1 шт</span></h3>
-                <p style={{height: 140}} className="weekly-top__descr">
+                <h3 style={{fontWeight: '700', textAlign: 'center', height: 68, fontSize: 18}}>{title}</h3>
+                <h3 style={{marginTop: 14}}>{price} р.<span style={{opacity: '.5', fontSize: '.8em'}}>/ 1 шт</span></h3>
+                <p style={{height: 140, fontSize: 12, fontWeight: 300, marginTop: 20}}>
                     {descr}
                 </p>
 
@@ -101,11 +98,9 @@ const AppCardItem = ({boxShadow = true, src = itemImg, title = null, price = nul
                     <Button sx={descrBtnStyle}>Подробнее</Button>
                 </ThemeProvider>
 
-                <div style={btnsStyle}
-                    className="weekly-top__buy-btns">  
+                <div style={btnsStyle}>  
                         <div
-                            style={counterBtnStyle} 
-                            className="weekly-top__counter">
+                            style={counterBtnStyle}>
                                 <p>counter</p>
                         </div>
 

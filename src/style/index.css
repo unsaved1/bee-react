@@ -69,6 +69,18 @@ ul {
   font-weight: 600;
 }
 
+@media (max-width: 768px) {
+    .title {
+      font-size: 48px;
+    }
+}
+
+@media (max-width: 576px) {
+    .title {
+      font-size: 32px;
+    }
+}
+
 body .css-v4u5dn-MuiInputBase-root-MuiInput-root:after {
   border-bottom: none;
 }

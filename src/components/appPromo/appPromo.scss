@@ -31,3 +31,60 @@
         display: flex;
     }
 }
+
+@media (max-width: 992px) {
+    .container {
+        width: 720px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 540px;
+    }
+
+    .promo {
+        .container {
+            z-index: 1;
+        }
+        &__title {
+            width: unset;
+            font-size: 48px;
+        }
+        &__subtitle {
+            font-size: 24px;
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        width: 100%;
+        padding: 20px;
+    }
+    .promo {
+        &__title {
+            font-size: 28px;
+            span {
+                font-size: inherit;
+                font-weight: inherit;
+            }
+        }
+        &__btns {
+            flex-direction: column;
+        }
+        &__btn {
+            &_bee {
+                button {
+                    width: 140px;
+                }
+            }
+            &_tea {
+                margin-top: 20px;
+                button {
+                    width: 240px;
+                }
+            }
+        }
+    }
+}

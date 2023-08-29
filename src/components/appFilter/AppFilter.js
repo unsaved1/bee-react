@@ -39,8 +39,8 @@ const AppFilter = (
         <div className="filter">
             <div className="container">
                 <div className="filter__wrapper">
-                    <div className="filter__category">
-                        <FormControl>
+                    <div>
+                        <FormControl className="filter__category">
                             <form action="#">
                                 <NativeSelect onChange={e => filterFn(e)} variant='outlined' className='filter__category-select'>
                                     {category}

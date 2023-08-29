@@ -8,7 +8,7 @@
         height: 280px;
     }
     &__producer {
-        flex: 60%;
+        flex: 100%;
 
         text-transform: uppercase;
         font-weight: 500;
@@ -39,3 +39,43 @@
         color: #fff;
     }
 }
+
+
+@media (max-width: 768px) {
+    .footer {
+        &__wrapper {
+            height: unset;
+            flex-wrap: wrap;
+        }
+        &__producer {
+            margin-bottom: 40px;
+        }
+        &__menu-title, &__contacts-title {
+            font-size: 14px;
+        }
+        &__menu, &__contacts {
+            min-height: 240px;
+            li {
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .footer {
+        &__wrapper {
+            flex-direction: column;
+            align-items: start;
+        }
+        &__producer {
+            margin: 0;
+        }
+        &__menu, &__contacts {
+            min-height: 160px;
+            margin-top: 40px;
+        }
+        
+    }
+}
+

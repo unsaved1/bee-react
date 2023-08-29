@@ -8,7 +8,9 @@ const AppContactsPromo = ({ bg = null,
     const promoStyle = {
         position: 'relative',
         background: 'linear-gradient(to top, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2))',
-        minHeight: '80vh',        
+        minHeight: '80vh',    
+        
+        paddingTop: window.innerWidth <= 768 ? 40 : null,
     }
     
     const filterBgStyle = {
@@ -25,10 +27,23 @@ const AppContactsPromo = ({ bg = null,
         width: '100%',
         height: '100%',
     }
+    
 
+    const setTitleFz = () => {
+        if (window.innerWidth <= 576) {
+            return 34
+        } 
+        if (window.innerWidth <= 768) {
+            return 48
+        } else {
+            return 104
+        }
+    }
+
+    const titleFz = setTitleFz();
     const titleStyle = {
         textTransform: 'uppercase',
-        fontSize: 104,
+        fontSize: titleFz,
         fontWeight: '600',
         textAlign: 'center',
         
