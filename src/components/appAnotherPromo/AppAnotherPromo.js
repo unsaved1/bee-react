@@ -8,9 +8,11 @@ const AppAnotherPromo = ({  bg = null,
 
     const promoStyle = {
         position: 'relative',
-        background: `${bg}`,
-        minHeight: `${height}`
+        minHeight: `${height}`,
+        background: `${bg}`, 
+        overflow: 'hidden'
     }
+
 
     const titleStyle = {
         textTransform: 'uppercase',
@@ -38,7 +40,8 @@ const AppAnotherPromo = ({  bg = null,
 
     const svgStyle = {
         position: 'absolute',
-        bottom: '0'
+        bottom: '0',
+        zIndex: '4'
     }
 
 
@@ -57,11 +60,13 @@ const AppAnotherPromo = ({  bg = null,
         <section style={promoStyle} className="promo">
             <AppHeader/>
             <AppIframeBg url={bg}/>
-            <h1 style={titleStyle}>
-                    {title}</h1>
+            <div style={{position: 'relative'}} className="promo__wrapper">
+                <h1 style={titleStyle}>
+                        {title}</h1>
 
-            <div style={textWrapperStyle}>
-                {textParagraphs}
+                <div style={textWrapperStyle}>
+                    {textParagraphs}
+                </div>
             </div>
 
             <svg style={svgStyle}  viewBox="0 0 100 5" xmlns="http://www.w3.org/2000/svg"

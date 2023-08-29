@@ -1,7 +1,10 @@
 import './AppSlider.scss';
-import sliderArrow from '../../resources/icons/slider_arrow.svg';
-
 import { useEffect, useState } from "react";
+// import sliderArrow from '../../resources/icons/slider_arrow.svg';
+const sliderArrow = <svg width="83" height="36" viewBox="0 0 83 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M81 34L41.5 2L2 34" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>;
+
 const AppSlider = ({width}) => {
     const [items, setItems] = useState(['https://thumb.tildacdn.com/tild3338-3563-4237-b466-323036663935/-/format/webp/photo_2022-04-22_17-.jpg', 'https://thumb.tildacdn.com/tild3132-6461-4139-b438-666239626331/-/format/webp/photo_2022-04-22_17-.jpg', 'https://thumb.tildacdn.com/tild6564-6339-4037-a439-623861356331/-/format/webp/photo_2022-04-22_17-.jpg']);
     const [slideIndex, setSlideIndex] = useState(0);
@@ -60,10 +63,10 @@ const AppSlider = ({width}) => {
                 {content}
             </div>
             <button onClick={() => goToPrev(slideIndex)} data-arrow='prev' className="slider__arrow slider__arrow_prev">
-                <img src={sliderArrow} alt="prev"/>
+                {sliderArrow}
             </button>
             <button onClick={() => goToNext(slideIndex)} data-arrow='next' className="slider__arrow slider__arrow_next">
-                <img src={sliderArrow} alt="next"/>
+                {sliderArrow}
             </button>
         </div>
     )

@@ -8,8 +8,11 @@ const AppIframeBg = ({url}) => {
         left: '0', 
         height: '100%', 
         width: '100%', 
-        zIndex: '-1', 
-        overflow: 'hidden'
+        // zIndex: '-1', 
+        overflow: 'hidden',
+
+        animationName: 'fadeInBg', 
+        animationDuration: '1s', 
     }
 
 

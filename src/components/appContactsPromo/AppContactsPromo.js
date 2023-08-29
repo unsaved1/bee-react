@@ -7,20 +7,23 @@ const AppContactsPromo = ({ bg = null,
 
     const promoStyle = {
         position: 'relative',
-        background: `url(${contactsBg}) center center/cover no-repeat`,
-        minHeight: '80vh'
-    }
-
-    const filterBgStyle = {
         background: 'linear-gradient(to top, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2))',
+        minHeight: '80vh',        
+    }
+    
+    const filterBgStyle = {
+        background: `url(${contactsBg}) center center/cover no-repeat`,
 
         position: 'absolute',
         top: '0',
         left: '0',
-        zIndex: '1',
+        zIndex: '-1',
+
+        animationName: 'fadeInBg',
+        animationDuration: '1s',
 
         width: '100%',
-        height: '100%'
+        height: '100%',
     }
 
     const titleStyle = {

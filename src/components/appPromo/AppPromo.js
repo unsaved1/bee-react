@@ -1,15 +1,17 @@
 import './appPromo.scss';
 
 import AppHeader from '../appHeader/AppHeader';
+import AppIframeBg from '../appIframeBg/AppIframeBg';
 
 import AppBtnTheme from '../appBtnTheme/AppBtnTheme';
 import { Button, ThemeProvider } from '@mui/material';
 import { Link } from 'react-router-dom';
 
-const AppPromo = () => {
+const AppPromo = ({bgUrl}) => {
     return (
-        <section style={{bg: 'url("../../resources/images/main-bg.png") center center/cover no-repeat'}} className="promo">
+        <section className="promo">
              <AppHeader/>
+             <AppIframeBg url={bgUrl}/>
             <div className="container">
                
                 <h1 className="title promo__title">

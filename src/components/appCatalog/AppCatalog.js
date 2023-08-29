@@ -7,6 +7,8 @@ import AppFilter from '../appFilter/AppFilter';
 import catalog from '../../resources/db/db.json';
 import someImg from '../../resources/images/bee-item.png';
 
+import {CircularProgress} from "@mui/material";
+
 const AppCatalog = (
                     {   catalogName = null, 
                         itemImg = someImg, 
@@ -19,6 +21,8 @@ const AppCatalog = (
     const [filterProp, setFilterProp] = useState('без категории');
     const [sortingProp, setSortingProp] = useState('');
 
+    const [loading, setLoading] = useState(true);
+
     useEffect(() => {
         catalogItemsData
             .then(onItemsLoad)
@@ -27,6 +31,7 @@ const AppCatalog = (
 
     const onItemsLoad = (itemList) => {
         setItems((items) => [...itemList]);
+        setLoading(false);
     }
     
     const catalogItemsData = new Promise((resolve, reject) => {
@@ -141,6 +146,7 @@ const AppCatalog = (
         return [...itemsArr]
     }
 
+    const spinner = loading ? <CircularProgress color='primary'/> : null;
     const content = setAllItems(items);
 
     return (
@@ -157,6 +163,7 @@ const AppCatalog = (
                     gridTemplateRows='repeat(auto-fit, 780px)'
                     gap='20px'>
                      {content}
+                     {spinner}
                 </Grid>
             </div>
         </section>

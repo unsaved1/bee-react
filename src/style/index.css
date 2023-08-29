@@ -72,3 +72,13 @@ ul {
 body .css-v4u5dn-MuiInputBase-root-MuiInput-root:after {
   border-bottom: none;
 }
+
+
+@keyframes fadeInBg {
+    from {
+      filter: blur(5px);
+    }
+    to {
+      filter: blur(0px);
+    }
+}

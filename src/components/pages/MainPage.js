@@ -9,7 +9,7 @@ import AppWeeklyTop from "../appWeeklyTop/AppWeeklyTop";
 const MainPage = () => {
     return (
         <>
-            <AppPromo/>
+            <AppPromo bgUrl='_AYhRpS8Mz8'/>
             <AppWeeklyTop/>
             <AppAbout/>
             <AppHowOrder/>
