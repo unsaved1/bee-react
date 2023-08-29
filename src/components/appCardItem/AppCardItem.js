@@ -91,7 +91,7 @@ const AppCardItem = ({boxShadow = true, src = itemImg, title = null, price = nul
                             src={src}
                             alt="beeItem"/>
                 </div>
-                <h3 style={{fontWeight: '700', textAlign: 'center'}} className="weekly-top__item-name">{title}</h3>
+                <h3 style={{fontWeight: '700', textAlign: 'center', height: 48}} className="weekly-top__item-name">{title}</h3>
                 <h3 style={{marginTop: '12px'}} className="weekly-top__item-price">{price} р.<span style={{opacity: '.5', fontSize: '.8em'}}>/ 1 шт</span></h3>
                 <p style={{height: 140}} className="weekly-top__descr">
                     {descr}
